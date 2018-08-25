@@ -19,13 +19,16 @@
   </div>
 </header>
 
-<!-- top -->
-<section id="top">
-  <div class="wrapper_contents_top">
-    <h2 class="title_top_archives">
-      <img src="~/assets/title_top_archives.png" title="Comics" alt="テキスト画像">
-    </h2>
-    <h3 class="subtitle_top_archives">マンガ一覧</h3>
+<!-- detail -->
+<section id="detail">
+  <div class="wrapper_contents_detail">
+    <div class="info_detail">
+      <h2 class="title_book_detail">マンガをアップロードする</h2>
+      <p class="description_book_detail">こちらからマンガのアップロードをおこなってください</p>
+      <div class="wrapper_form_header">
+      <a class="button_upload_header">アップロード開始</a>
+    </div>
+    </div>
   </div>
 </section>
 
@@ -34,98 +37,98 @@
   <ul class="wrapper_contents_archives">
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
     </li>
     <li class="each_book_archives">
       <article class="thumbnail_archives">
-        <a href="/detail">
+        <a href="#">
           <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
         </a>
       </article>
@@ -250,48 +253,79 @@ header .subtitle_balance_header {
 }
 header .balance_header {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
 }
 
-/* top */
-#top {
+/* detail */
+#detail {
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url('~/assets/background_top.jpg');
-  height: 340px;
+  height: 500px;
+  padding-top: 60px;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 }
-#top .wrapper_contents_top {
-  width: 230px;
-  padding-top: 150px;
-  margin: 0px auto;
+#detail .wrapper_contents_detail {
+  display: -webkit-flex;
+  display: flex;
+  margin: 0 auto;
+  width: 800px;
 }
-#top .title_top_archives img {
+#detail .info_detail {
   width: 100%;
-  height: auto;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-#top .subtitle_top_archives {
+#detail .title_book_detail {
+  font-size: 40px;
   text-align: center;
-  color: #fff;
-  font-size: 20px;
+}
+#detail .description_book_detail {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
   margin-top: 10px;
+}
+#detail .button_upload_header {
+  background: #1e5ccc;
+  display: block;
+  padding: 20px 0;
+  font-family: 'Oswald', sans-serif;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius:1200px;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
+}
+#detail .wrapper_form_header {
+  margin-top: 40px;
 }
 
 /* archives */
 #archives {
-  padding: 40px 0 160px;
+  padding: 0px 0 160px;
 }
 #archives .wrapper_contents_archives {
   letter-spacing: -.4em;
-  width: 90%;
+  width: 1000px;
   margin: 0 auto;
 }
 #archives .each_book_archives {
-  width: 17.6%;
-  box-shadow: 0px 15px 40px rgba(0, 0, 0, .3);
-  margin-right: 3%;
+  width: 16.8%;
+  margin-right: 4%;
+  overflow: hidden;
+  margin-bottom: 40px;
   border-radius: 4px;
   letter-spacing: normal;
   display: inline-block;
@@ -299,15 +333,14 @@ header .balance_header {
 }
 #archives .each_book_archives:nth-of-type(5n) {
   margin-right: 0%;
-  margin-bottom: 4%;
 }
-.thumbnail_archives {
-  overflow: hidden;
-  border-radius: 4px;
+#archives .thumbnail_archives {
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .2);
   width: 100%;
-  height: 320px;
+  height: 180px;
+  background-color: #f5f5f5;
 }
-.thumbnail_archives > a {
+#archives .thumbnail_archives > a {
   display: block;
   width: 100%;
   height: 100%;

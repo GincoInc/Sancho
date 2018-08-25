@@ -16,7 +16,8 @@
     "@cityofzion/neon-js": "^3.10.1",
     "ipfs-api": "^24.0.1",
     "nuxt": "^1.0.0",
-    "nuxt-buefy": "^0.1.0"
+    "nuxt-buefy": "^0.1.0",
+    "webcrypto-shim": "^0.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
