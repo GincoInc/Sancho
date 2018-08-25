@@ -3,9 +3,9 @@
     <ul class="wrapper_contents_archives">
       <li class="each_book_archives" v-for="(comic, index) in $store.state.comics" :key="index">
         <article class="thumbnail_archives">
-          <a href="/comics/hash">
+          <div v-on:click="goDetail(comic.hash)">
             <img :src="'https://ipfs.io/ipfs/'+ comic.imageHashes[0]">
-          </a>
+          </div>
         </article>
       </li>
     </ul>
@@ -29,13 +29,17 @@ async function getComics() {
 export default {
   components: {},
   beforeCreate: async function() {
-    this.$store.state.comics = await getComics()
+    let comics = await getComics()
+    this.$store.commit('setComics', comics) 
   },
   data() {
     return {
     }
   },
   methods :{
+    goDetail(hash) {
+      this.$router.push('/comics/' + hash)
+    }
   }
 };
 
