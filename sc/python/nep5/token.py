@@ -16,7 +16,7 @@ NEP5_METHODS = ['name', 'symbol', 'decimals', 'totalSupply', 'balanceOf', 'trans
 
 TOTAL_SUPPLY_KEY = b'total_supply'
 
-TOTAL_SUPPLY_CAP = 10000 * 100000000
+TOTAL_SUPPLY_CAP = 1000000 * 100000000
 
 OnTransfer = RegisterAction('transfer', 'addr_from', 'addr_to', 'amount')
 
