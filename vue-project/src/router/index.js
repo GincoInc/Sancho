@@ -1,6 +1,7 @@
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Comics from '@/components/Comics'
+import Upload from '@/components/Upload'
 //import App from '@/App'
 import Vue from 'vue'
 
@@ -17,5 +18,9 @@ export default new Router({
       path: '/comics',
       component: Comics
     },
+    {
+      path: '/upload',
+      component: Upload
+    }
   ]
 })
