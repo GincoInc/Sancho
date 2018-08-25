@@ -26,6 +26,7 @@ import ipfsAPI from 'ipfs-api'
 const ipfs = ipfsAPI('localhost', '5001')
 import * as neon from '@cityofzion/neon-js'
 import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
+import { sha3_256 } from 'js-sha3';
 
 const account = new wallet.Account('KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr')
 const client = new rpc.RPCClient('http://localhost:30333', '2.7.6')
@@ -73,7 +74,7 @@ export default {
             }
             uploadedImageHashes.push(file[0].hash);
             if (files.length == uploadedImageHashes.length) {
-              const json = JSON.stringify({ title: "hoge", imageHashes: uploadedImageHashes })
+              const json = JSON.stringify({ title: "hoge", imageHashes: uploadedImageHashes, hash: sha3_256(JSON.stringify({ title: "hoge", imageHashes: uploadedImageHashes})) })
               console.log(json)
 
               Neon.doInvoke({
