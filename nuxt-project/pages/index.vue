@@ -32,22 +32,23 @@
     <li class="each_ex_introduction">
       <article>
         <div class="icon_introduction"></div>
-        <h3 class="each_title_introduction">人気の漫画がいつでも<br />どこでも無料で読める！</h3>
-        <p class="description_introduction">テキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入ります</p>
+        <h3 class="each_title_introduction">Enjoy your favorite <br />comic for free!</h3>
+        <p class="description_introduction">We can see out favorite manga anytime, anywhere, for free</p>
       </article>
     </li>
     <li class="each_ex_introduction">
       <article>
         <div class="icon_introduction"></div>
-        <h3 class="each_title_introduction">タイトルが入ります</h3>
-        <p class="description_introduction">テキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入ります</p>
+        <h3 class="each_title_introduction">Contribute, get money!</h3>
+        <p class="description_introduction">
+Gives the author the profit that it was originally unable to obtain due to the pirated illegal upload site</p>
       </article>
     </li>
     <li class="each_ex_introduction">
       <article>
         <div class="icon_introduction"></div>
-        <h3 class="each_title_introduction">タイトルが入ります</h3>
-        <p class="description_introduction">テキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入ります</p>
+        <h3 class="each_title_introduction">Transparent management!</h3>
+        <p class="description_introduction">Completely non-centralized application that did not have a centrally managed server</p>
       </article>
     </li>
   </ul>
@@ -366,4 +367,3 @@ $980px
 }
 
 </style>
-
