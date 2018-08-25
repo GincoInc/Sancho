@@ -23,10 +23,10 @@
 <section id="detail">
   <div class="wrapper_contents_detail">
     <div class="thumbnail_book_detail">
-      <img src="~/assets/thumbnail_book_01.jpg" title="books" alt="サムネイル画像">
+      <img :src="'https://ipfs.io/ipfs/'+ comic.imageHashes[0]">
     </div>
     <div class="info_detail">
-      <h2 class="title_book_detail">マンガのタイトルが入ります</h2>
+      <h2 class="title_book_detail">{{ comic.title }}</h2>
       <p class="description_book_detail">黒崎一護・15歳・ユウレイの見える男。その特異な体質のわりに安穏とした日々を送っていた一護だが、突如、自らを死神と名乗る少女と遭遇、「虚」と呼ばれる悪霊に襲われる。次々と倒れる家族を前に一護は!</p>
       <div class="wrapper_form_header">
       <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
@@ -39,102 +39,9 @@
 <!-- archives -->
 <section id="archives">
   <ul class="wrapper_contents_archives">
-    <li class="each_book_archives">
+    <li class="each_book_archives" v-for="(hash, index) in comic.imageHashes" :key="index">
       <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="#">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
+        <img :src="'https://ipfs.io/ipfs/'+ hash">
       </article>
     </li>
   </ul>
@@ -171,25 +78,23 @@
 
 
 <script>
-import Comic from '~/components/Comic.vue'
-
 export default {
-  components: {
-    Comic
+  created() {
+    for (var i = 0; i < this.$store.state.comics.length; i++) {
+      if (this.$route.params.id === this.$store.state.comics[i]["hash"]) {
+          this.comic = this.$store.state.comics[i]
+          break
+      }
+    }
   },
   data() {
     return {
+      comic: {}
     }
   },
-  beforeCreate() {
-    console.log(this.$route.params)
-    // if (!this.$store.state.isLogin) {
-    //   this.$router.push('/')
-    // }
-  },
   methods :{
-  },
-}
+  }
+};
 </script>
 
 
