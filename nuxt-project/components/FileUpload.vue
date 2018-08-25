@@ -1,23 +1,10 @@
 <template>
   <div id="app">
-    <!-- <div class="file">
-      <label class="file-label">
-        <input class="file-input" type="file" name="resume" v-on:change="onFileChange" multiple>
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fas fa-upload"></i>
-          </span>
-          <span class="file-label">
-            Choose a file…
-          </span>
-        </span>
-      </label>
-    </div> -->
     <section id="detail">
       <div class="wrapper_contents_detail">
         <div class="info_detail">
-          <h2 class="title_book_detail">マンガをアップロードする</h2>
-          <p class="description_book_detail">こちらからマンガのアップロードをおこなってください</p>
+          <h2 class="title_book_detail">Upload manga files</h2>
+          <p class="description_book_detail">Upload your manga files below.</p>
           <div class="wrapper_form_header">
           <input class="button_upload_header" type="file" v-on:change="onFileChange" multiple>
         </div>
@@ -101,5 +88,14 @@ export default {
     }
   }
 };
-
 </script>
+
+<style>
+
+.button_upload_header {
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  display: flex;
+}
+
+</style>
