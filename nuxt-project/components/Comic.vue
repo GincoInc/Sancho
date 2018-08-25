@@ -1,15 +1,11 @@
 <template>
-  <section id="archives">
-    <ul class="wrapper_contents_archives">
-      <li class="each_book_archives" v-for="(comic, index) in $store.state.comics" :key="index">
-        <article class="thumbnail_archives">
-          <a href="/comics/hash">
-            <img :src="'https://ipfs.io/ipfs/'+ comic.imageHashes[0]">
-          </a>
-        </article>
+  <div id="comic">
+    <ul>
+      <li v-for="(comic, index) in $store.state.comics" :key="index">
+        <img v-show="comic" :src="'https://ipfs.io/ipfs/'+ comic.imageHashes[0]" />
       </li>
     </ul>
-  </section>
+  </div>
 </template>
 
 <script>

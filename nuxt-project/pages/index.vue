@@ -9,11 +9,12 @@
         <img src="~/assets/logo_header.png" title="SANCHO" alt="SANCHOロゴ">
       </a>
     </h1>
-    <div class="wrapper_form_header">
+    <login/>
+    <!-- <div class="wrapper_form_header">
       <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
       <button class="button_go_header" location.href="/comics">GO</button>
       <button class="button_upload_header">Upload</button>
-    </div>
+    </div> -->
   </div>
 </header>
 
@@ -90,6 +91,16 @@
 
 </div>
 </template>
+
+<script>
+import Login from '~/components/Login.vue'
+
+export default {
+  components: {
+    Login
+  }
+}
+</script>
 
 <style>
 @charset "UTF-8";

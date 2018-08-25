@@ -14,7 +14,7 @@
         <span class="subtitle_balance_header">アドレス:</span>
         <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
       </div>
-      <button class="button_go_header">Upload</button>
+      <button class="button_go_header" v-on:click="goUpload">Upload</button>
     </div>
   </div>
 </header>
@@ -29,109 +29,8 @@
   </div>
 </section>
 
-<!-- archives -->
-<section id="archives">
-  <ul class="wrapper_contents_archives">
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-    <li class="each_book_archives">
-      <article class="thumbnail_archives">
-        <a href="/detail">
-          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
-        </a>
-      </article>
-    </li>
-  </ul>
-</section>
+<!-- comics -->
+<comics/>
 
 <!-- footer -->
 <footer>
@@ -164,6 +63,27 @@
 
 
 <script>
+import Comics from '~/components/Comics.vue'
+
+export default {
+  components: {
+    Comics
+  },
+  data() {
+    return {
+    }
+  },
+  beforeCreate() {
+    if (!this.$store.state.isLogin) {
+      this.$router.push('/')
+    }
+  },
+  methods :{
+    goUpload() {
+      this.$router.push('/upload')
+    }
+  },
+}
 </script>
 
 

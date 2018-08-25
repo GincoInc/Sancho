@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <ul>
-      <li v-for="image in uploadedImages" :key="image">
-        <img v-show="image" :src="'https://ipfs.io/ipfs/'+ image.imageHashes[0]" />
-      </li>
-    </ul>
-    <div class="file">
+    <!-- <div class="file">
       <label class="file-label">
         <input class="file-input" type="file" name="resume" v-on:change="onFileChange" multiple>
         <span class="file-cta">
@@ -17,7 +12,28 @@
           </span>
         </span>
       </label>
-    </div>
+    </div> -->
+    <section id="detail">
+      <div class="wrapper_contents_detail">
+        <div class="info_detail">
+          <h2 class="title_book_detail">マンガをアップロードする</h2>
+          <p class="description_book_detail">こちらからマンガのアップロードをおこなってください</p>
+          <div class="wrapper_form_header">
+          <input class="button_upload_header" type="file" v-on:change="onFileChange" multiple>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="archives">
+      <ul class="wrapper_contents_archives">
+        <li class="each_book_archives" v-for="(url, index) in uploadedImageURLs" :key="index">
+          <article class="thumbnail_archives">
+            <img :src="url">
+          </article>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -26,9 +42,8 @@ import ipfsAPI from 'ipfs-api'
 const ipfs = ipfsAPI('localhost', '5001')
 import * as neon from '@cityofzion/neon-js'
 import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
-import { sha3_256 } from 'js-sha3';
+import { sha3_256 } from 'js-sha3'
 
-const account = new wallet.Account('KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr')
 const client = new rpc.RPCClient('http://localhost:30333', '2.7.6')
 const config = {
   name: 'http://127.0.0.1:30333',
@@ -39,25 +54,11 @@ const config = {
 const privateNet = new rpc.Network(config)
 Neon.add.network(privateNet)
 
-async function getImages() {
-  const props = {
-    scriptHash: '8e1ed289c3e66335de89bfb39265057f49828ecd', // Scripthash for the contract
-    operation: 'getData', // name of operation to perform.
-    args: [] // any optional arguments to pass in. If null, use empty array.
-  }
-  let script = Neon.create.script(props)
-  let res = await rpc.Query.invokeScript(Neon.create.script(props)).execute('http://localhost:30333')
-  return JSON.parse('[' + u.hexstring2str(res.result.stack[0].value) + ']')
-}
-
 export default {
   components: {},
-  created: async function() {
-    this.uploadedImages = await getImages()
-  },
   data() {
     return {
-      uploadedImages: [],
+      uploadedImageURLs: [],
     }
   },
   methods :{
@@ -73,6 +74,7 @@ export default {
               console.log(err);
             }
             uploadedImageHashes.push(file[0].hash);
+            this.uploadedImageURLs.push('https://ipfs.io/ipfs/' + file[0].hash)
             if (files.length == uploadedImageHashes.length) {
               const json = JSON.stringify({ title: "hoge", imageHashes: uploadedImageHashes, hash: sha3_256(JSON.stringify({ title: "hoge", imageHashes: uploadedImageHashes})) })
               console.log(json)
@@ -84,7 +86,7 @@ export default {
                   operation: 'putData', // name of operation to perform.
                   args: [u.str2hexstring(json)]
                 }),
-                account: account,
+                account: new wallet.Account(this.$store.state.privateKey),
                 gas: 1
               }).then(res => {
                 console.log(res);

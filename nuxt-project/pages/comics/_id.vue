@@ -14,12 +14,131 @@
         <span class="subtitle_balance_header">アドレス:</span>
         <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
       </div>
-      <button class="button_go_header">Upload</button>
+      <button class="button_go_header" location.href="/upload">Upload</button>
     </div>
   </div>
 </header>
 
-<file-upload/>
+<!-- detail -->
+<section id="detail">
+  <div class="wrapper_contents_detail">
+    <div class="thumbnail_book_detail">
+      <img src="~/assets/thumbnail_book_01.jpg" title="books" alt="サムネイル画像">
+    </div>
+    <div class="info_detail">
+      <h2 class="title_book_detail">マンガのタイトルが入ります</h2>
+      <p class="description_book_detail">黒崎一護・15歳・ユウレイの見える男。その特異な体質のわりに安穏とした日々を送っていた一護だが、突如、自らを死神と名乗る少女と遭遇、「虚」と呼ばれる悪霊に襲われる。次々と倒れる家族を前に一護は!</p>
+      <div class="wrapper_form_header">
+      <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
+      <button class="button_upload_header">Vote</button>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- archives -->
+<section id="archives">
+  <ul class="wrapper_contents_archives">
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_03.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_04.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_05.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_06.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_01.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+    <li class="each_book_archives">
+      <article class="thumbnail_archives">
+        <a href="#">
+          <img src="~/assets/thumbnail_book_02.jpg" title="manga name" alt="サムネイル画像">
+        </a>
+      </article>
+    </li>
+  </ul>
+</section>
 
 <!-- footer -->
 <footer>
@@ -52,20 +171,21 @@
 
 
 <script>
-import FileUpload from '~/components/FileUpload.vue'
+import Comic from '~/components/Comic.vue'
 
 export default {
   components: {
-    FileUpload
+    Comic
   },
   data() {
     return {
     }
   },
   beforeCreate() {
-    if (!this.$store.state.isLogin) {
-      this.$router.push('/')
-    }
+    console.log(this.$route.params)
+    // if (!this.$store.state.isLogin) {
+    //   this.$router.push('/')
+    // }
   },
   methods :{
   },
@@ -163,7 +283,7 @@ header .balance_header {
 /* detail */
 #detail {
   width: 100%;
-  height: 500px;
+  height: 550px;
   padding-top: 60px;
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -178,37 +298,61 @@ header .balance_header {
   margin: 0 auto;
   width: 800px;
 }
+#detail .thumbnail_book_detail {
+  width: 240px;
+  border-radius: 4px;
+  height: 320px;
+  overflow: hidden;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .2);
+  background: #f5f5f5;
+}
 #detail .info_detail {
-  width: 100%;
+  width: 60%;
+  margin-left: 60px;
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 #detail .title_book_detail {
-  font-size: 40px;
-  text-align: center;
+  font-size: 24px;
 }
 #detail .description_book_detail {
   font-size: 14px;
   color: #777;
-  text-align: center;
   margin-top: 10px;
+}
+#detail .rapper_form_header {
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  display: flex;
+  align-items: center;
+}
+#detail .input_key_header {
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  appearance: none;
+  height: 41px;
+  padding: 4px 10px;
+  background: #fff;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
+  width: 350px;
 }
 #detail .button_upload_header {
   background: #1e5ccc;
-  display: block;
-  padding: 20px 0;
+  height: 40px;
   font-family: 'Oswald', sans-serif;
   -webkit-appearance: none;
   appearance: none;
-  border-radius:1200px;
+  border-radius: 20px;
   color: #fff;
   font-size: 14px;
-  width: 100%;
+  width: 110px;
   text-align: center;
   font-weight: bold;
   border: none;
+  margin-left: 20px;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
 }
 #detail .wrapper_form_header {
@@ -221,12 +365,11 @@ header .balance_header {
 }
 #archives .wrapper_contents_archives {
   letter-spacing: -.4em;
-  width: 1000px;
+  width: 800px;
   margin: 0 auto;
 }
 #archives .each_book_archives {
-  width: 16.8%;
-  margin-right: 4%;
+  width: 100%;
   overflow: hidden;
   margin-bottom: 40px;
   border-radius: 4px;
@@ -236,11 +379,12 @@ header .balance_header {
 }
 #archives .each_book_archives:nth-of-type(5n) {
   margin-right: 0%;
+  margin-bottom: 4%;
 }
 #archives .thumbnail_archives {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .2);
   width: 100%;
-  height: 180px;
+  height: 480px;
   background-color: #f5f5f5;
 }
 #archives .thumbnail_archives > a {
