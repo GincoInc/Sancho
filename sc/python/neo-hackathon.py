@@ -1,5 +1,5 @@
 from boa.interop.System.ExecutionEngine import GetScriptContainer, GetExecutingScriptHash
-from boa.interop.Neo.Runtime import GetTrigger, CheckWitness, Log, Notify
+from boa.interop.Neo.Runtime import *
 from boa.interop.Neo.TriggerType import Application, Verification
 from boa.interop.Neo.Storage import *
 from boa.interop.Neo.Transaction import Transaction, GetReferences, GetOutputs, GetUnspentCoins
@@ -34,7 +34,10 @@ def Main(operation, args):
             if operation == op:
                 return handle_token(ctx, operation, args)
 
-        if operation == 'claimTokens':
+        if operation == 'deploy':
+            return deploy(ctx)
+
+        elif operation == 'claimTokens':
             return claim_tokens(ctx)
 
         elif operation == 'vote':
@@ -60,6 +63,18 @@ def Main(operation, args):
                 return withdraw(ctx, args[0])
 
         return 'unknown operation'
+
+def deploy():
+    if not CheckWitness(OWNER):
+        print("Must be owner to deploy")
+        return False
+
+    if not Get(ctx, 'initialized'):
+        Put(ctx, 'initialized', 1)
+        Put(ctx, OWNER, TOTAL_SUPPLY_CAP)
+        return True
+
+    return False
 
 def claim_tokens(ctx):
     attachments = get_asset_attachments()  # [receiver, sender, neo, gas]
@@ -91,20 +106,31 @@ def get_vote(ctx, bhash):
     return Get(ctx, bhash)
 
 def put_vote(ctx, bhash, address):
-    vote_list = Get(ctx, bhash)
-    if len(vote_list) == 0:
-        Put(ctx, bhash, address)
-        return True
-    result = concat(vote_list, concat(b',', address))
-    Put(ctx, bhash, result)
+    vote_data = Get(ctx, bhash)
+    if len(vote_data) != 0:
+        vote_dict = Deserialize(Get(ctx, bhash))
+    else:
+        vote_dict = {}
+    if has_key(vote_dict, address):
+        vote_dict[address] += 1
+    else:
+        vote_dict[address] = 1
+    Put(ctx, bhash, Serialize(vote_dict))
     return True
 
 def withdraw(ctx, bhash):
     attachments = get_asset_attachments()
-    vote_list = Get(ctx, bhash)
-    vote_dict = votelist2dict(vote_list)
-    Notify(vote_dict)
-    return True
+    vote_data = Get(ctx, bhash)
+    if len(vote_data) != 0:
+        vote_dict = Deserialize(Get(ctx, bhash))
+    else:
+        return False
+    raddress = reliable_address(vote_dict)
+    vote_count = vote_dict[raddress]
+    if raddress == attachments[1] and vote_count > 0:
+        transfer(ctx, OWNER, raddress, 100)
+        return True
+    return False
 
 def get_data(ctx):
     return Get(ctx, BOOKLIST)
@@ -128,16 +154,14 @@ def delete_data(ctx):
 # Helper
 # ################################################
 
-def votelist2dict(vlist):
-    tmp = b''
-    tmp_dict = {}
-    for i in range(0, len(vlist)):
-        if vlist[i] == 44:
-            tmp_dict[tmp] += 1
-            tmp = b''
-        else:
-            tmp = concat(tmp, vlist[i])
-    return tmp_dict
+def reliable_address(vdict):
+    max_reliable = 0
+    address = ''
+    for i in keys(vdict):
+        if vdict[i] > max_reliable:
+            max_reliable = vdict[i]
+            address = i
+    return address
 
 def get_asset_attachments():
     tx = GetScriptContainer()
