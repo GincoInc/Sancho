@@ -69,7 +69,7 @@ export default {
               Neon.doInvoke({
                 net: "http://127.0.0.1:30333",
                 script: Neon.create.script({
-                  scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71', // Scripthash for the contract
+                  scriptHash: this.$store.state.scriptHash, // Scripthash for the contract
                   operation: 'putData', // name of operation to perform.
                   args: [u.str2hexstring(json)]
                 }),

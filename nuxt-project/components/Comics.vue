@@ -15,9 +15,9 @@
 <script>
 import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
 
-async function getComics() {
+async function getComics(shash) {
   const props = {
-    scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71', // Scripthash for the contract
+    scriptHash: shash, // Scripthash for the contract
     operation: 'getData', // name of operation to perform.
     args: [] // any optional arguments to pass in. If null, use empty array.
   }
@@ -29,8 +29,8 @@ async function getComics() {
 export default {
   components: {},
   beforeCreate: async function() {
-    let comics = await getComics()
-    this.$store.commit('setComics', comics) 
+    let comics = await getComics(this.$store.state.scriptHash)
+    this.$store.commit('setComics', comics)
   },
   data() {
     return {
