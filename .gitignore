@@ -1,3 +1,6 @@
 sc/csharp/neo-hackathon/.vs
 sc/csharp/neo-hackathon/neo-hackathon/bin
 sc/csharp/neo-hackathon/neo-hackathon/obj
+sc/python/*.avm
+sc/python/*.json
+sc/python/nep5/__pycache__

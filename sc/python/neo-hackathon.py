@@ -33,29 +33,10 @@ def Main(operation, args):
             if operation == op:
                 return handle_token(ctx, operation, args)
 
-        if operation == 'deploy':
-            return deploy()
-
-        elif operation == 'claimTokens':
+        if operation == 'claimTokens':
             return claim_tokens(ctx)
 
-        elif operation == 'availableAmount':
-            return available_amount(ctx)
-
         return 'unknown operation'
-
-def deploy():
-    if not CheckWitness(OWNER):
-        print("Must be owner to deploy")
-        return False
-
-    if not Get(ctx, 'initialized'):
-        Put(ctx, 'initialized', 1)
-        Put(ctx, OWNER, INITIAL_AMOUNT)
-        return True
-
-    return False
-
 
 def claim_tokens(ctx):
     attachments = get_asset_attachments()  # [receiver, sender, neo, gas]
@@ -63,18 +44,13 @@ def claim_tokens(ctx):
     current_balance = Get(ctx, attachments[1])
     if current_balance > 0:
         return False
-    amount = attachments[2] * TOKENS_PER_NEO / 100000000
+    amount = 1
     new_balance = current_balance + amount
     Put(ctx, attachments[1], new_balance)
 
     OnTransfer(attachments[0], attachments[1], amount)
 
     return True
-
-
-def available_amount(ctx):
-    total_supply = Get(ctx, TOTAL_SUPPLY_KEY)
-    return TOTAL_SUPPLY_CAP - total_supply
 
 
 # ################################################
@@ -101,4 +77,3 @@ def get_asset_attachments():
                     sent_amount_gas += output.Value
 
     return [receiver_addr, sender_addr, sent_amount_neo, sent_amount_gas]
-

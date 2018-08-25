@@ -18,12 +18,7 @@ TOTAL_SUPPLY_KEY = b'total_supply'
 
 TOTAL_SUPPLY_CAP = 10000 * 100000000
 
-INITIAL_AMOUNT = 2500 * 100000000
-
-
 OnTransfer = RegisterAction('transfer', 'addr_from', 'addr_to', 'amount')
-OnApprove = RegisterAction('approve', 'addr_from', 'addr_to', 'amount')
-
 
 def handle_token(ctx, operation, args):
 
@@ -81,4 +76,3 @@ def transfer(ctx, from_addr, to_addr, amount):
         print("from address is not the tx sender")
 
     return False
-
