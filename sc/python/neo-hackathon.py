@@ -93,6 +93,9 @@ def claim_tokens(ctx):
 def vote(ctx, bhash, address):
     attachments = get_asset_attachments()  # [receiver, sender, neo, gas]
 
+    Notify(bhash)
+    Notify(address)
+
     if Get(ctx, concat(bhash, concat(b'-', attachments[1]))) != 0:
         return False
 
@@ -108,7 +111,7 @@ def get_vote(ctx, bhash):
 def put_vote(ctx, bhash, address):
     vote_data = Get(ctx, bhash)
     if len(vote_data) != 0:
-        vote_dict = Deserialize(Get(ctx, bhash))
+        vote_dict = Deserialize(vote_data)
     else:
         vote_dict = {}
     if has_key(vote_dict, address):
