@@ -9,17 +9,11 @@
         <img src="~/assets/logo_header.png" title="SANCHO" alt="SANCHOロゴ">
       </a>
     </h1>
-    <div class="wrapper_form_header">
-      <div class="wrapper_balance_header">
-        <span class="subtitle_balance_header">Address:</span>
-        <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
-      </div>
-      <button class="button_go_header">Upload</button>
-    </div>
+    <address-upload/>
   </div>
 </header>
 
-  <file-upload/>
+<file-upload/>
 
 <!-- footer -->
 <footer>
@@ -52,10 +46,12 @@
 
 
 <script>
+import AddressUpload from '~/components/AddressUpload.vue'
 import FileUpload from '~/components/FileUpload.vue'
 
 export default {
   components: {
+    AddressUpload,
     FileUpload
   },
   data() {

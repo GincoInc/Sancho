@@ -9,13 +9,7 @@
         <img src="~/assets/logo_header.png" title="SANCHO" alt="SANCHOロゴ">
       </a>
     </h1>
-    <div class="wrapper_form_header">
-      <div class="wrapper_balance_header">
-        <span class="subtitle_balance_header">Address:</span>
-        <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
-      </div>
-      <button class="button_go_header" v-on:click="goUpload">Upload</button>
-    </div>
+    <address-upload/>
   </div>
 </header>
 
@@ -62,10 +56,12 @@
 
 
 <script>
+import AddressUpload from '~/components/AddressUpload.vue'
 import Comics from '~/components/Comics.vue'
 
 export default {
   components: {
+    AddressUpload,
     Comics
   },
   data() {

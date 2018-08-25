@@ -17,7 +17,7 @@ import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
 
 async function getComics() {
   const props = {
-    scriptHash: '8e1ed289c3e66335de89bfb39265057f49828ecd', // Scripthash for the contract
+    scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71', // Scripthash for the contract
     operation: 'getData', // name of operation to perform.
     args: [] // any optional arguments to pass in. If null, use empty array.
   }

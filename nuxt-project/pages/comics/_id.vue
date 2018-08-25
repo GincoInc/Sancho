@@ -9,13 +9,7 @@
         <img src="~/assets/logo_header.png" title="SANCHO" alt="SANCHOロゴ">
       </a>
     </h1>
-    <div class="wrapper_form_header">
-      <div class="wrapper_balance_header">
-        <span class="subtitle_balance_header">アドレス:</span>
-        <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
-      </div>
-      <button class="button_go_header" location.href="/upload">Upload</button>
-    </div>
+    <address-upload/>
   </div>
 </header>
 
@@ -29,8 +23,9 @@
       <h2 class="title_book_detail">{{ comic.title }}</h2>
       <p class="description_book_detail">黒崎一護・15歳・ユウレイの見える男。その特異な体質のわりに安穏とした日々を送っていた一護だが、突如、自らを死神と名乗る少女と遭遇、「虚」と呼ばれる悪霊に襲われる。次々と倒れる家族を前に一護は!</p>
       <div class="wrapper_form_header">
-      <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
-      <button class="button_upload_header">Vote</button>
+      <input class="input_key_header" type="" name="" placeholder="Enter address here." v-model="address">
+      <button class="button_upload_header" v-on:click="vote">Vote</button>
+      <button class="withdraw" v-on:click="withdraw">Withdraw</button>
     </div>
     </div>
   </div>
@@ -78,7 +73,22 @@
 
 
 <script>
+import AddressUpload from '~/components/AddressUpload.vue'
+import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
+
+const config = {
+  name: 'http://127.0.0.1:30333',
+  extra: {
+    neoscan: 'http://127.0.0.1:4000/api/main_net'
+  }
+}
+const privateNet = new rpc.Network(config)
+Neon.add.network(privateNet)
+
 export default {
+  components: {
+    AddressUpload,
+  },
   created() {
     for (var i = 0; i < this.$store.state.comics.length; i++) {
       if (this.$route.params.id === this.$store.state.comics[i]["hash"]) {
@@ -89,10 +99,43 @@ export default {
   },
   data() {
     return {
-      comic: {}
+      comic: {},
+      address: ''
     }
   },
   methods :{
+    vote() {
+      Neon.doInvoke({
+        net: "http://127.0.0.1:30333",
+        script: Neon.create.script({
+          scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71', // Scripthash for the contract
+          operation: 'vote', // name of operation to perform.
+          args: [u.str2hexstring(this.$route.params.id), u.str2hexstring(new wallet.Account(this.$store.state.privateKey).address)]
+        }),
+        account: new wallet.Account(this.$store.state.privateKey),
+        gas: 1
+      }).then(res => {
+        console.log(res);
+      }).catch(e => {
+        console.log(e);
+      });
+    },
+    withdraw() {
+      Neon.doInvoke({
+        net: "http://127.0.0.1:30333",
+        script: Neon.create.script({
+          scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71', // Scripthash for the contract
+          operation: 'withdraw', // name of operation to perform.
+          args: [u.str2hexstring(this.$route.params.id)]
+        }),
+        account: new wallet.Account(this.$store.state.privateKey),
+        gas: 1
+      }).then(res => {
+        console.log(res);
+      }).catch(e => {
+        console.log(e);
+      });
+    }
   }
 };
 </script>
@@ -220,12 +263,12 @@ header .balance_header {
   justify-content: center;
 }
 #detail .title_book_detail {
-  font-size: 24px;
+  font-size: 28px;
 }
 #detail .description_book_detail {
   font-size: 14px;
-  color: #777;
-  margin-top: 10px;
+  color: #888;
+  margin-top: 16px;
 }
 #detail .rapper_form_header {
   display: -webkit-flex;
@@ -239,6 +282,7 @@ header .balance_header {
   border-radius: 4px;
   appearance: none;
   height: 41px;
+  font-size: 13px;
   padding: 4px 10px;
   background: #fff;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
@@ -261,6 +305,16 @@ header .balance_header {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
 }
 #detail .wrapper_form_header {
+  margin-top: 50px;
+}
+#detail .withdraw {
+  border: solid 1px #ccc;
+  color: #aaa;
+  padding: 11px 0;
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 4px;
+  text-align: center;
   margin-top: 40px;
 }
 
@@ -276,7 +330,7 @@ header .balance_header {
 #archives .each_book_archives {
   width: 100%;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
   border-radius: 4px;
   letter-spacing: normal;
   display: inline-block;
