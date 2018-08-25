@@ -29,9 +29,10 @@
       <h2 class="title_book_detail">マンガのタイトルが入ります</h2>
       <p class="description_book_detail">黒崎一護・15歳・ユウレイの見える男。その特異な体質のわりに安穏とした日々を送っていた一護だが、突如、自らを死神と名乗る少女と遭遇、「虚」と呼ばれる悪霊に襲われる。次々と倒れる家族を前に一護は!</p>
       <div class="wrapper_form_header">
-      <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
-      <button class="button_upload_header">Vote</button>
-    </div>
+        <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
+        <button class="button_upload_header">Vote</button>
+      </div>
+      <button class="withdraw">Withdraw</button>
     </div>
   </div>
 </section>
@@ -296,12 +297,12 @@ header .balance_header {
   justify-content: center;
 }
 #detail .title_book_detail {
-  font-size: 24px;
+  font-size: 28px;
 }
 #detail .description_book_detail {
   font-size: 14px;
-  color: #777;
-  margin-top: 10px;
+  color: #888;
+  margin-top: 16px;
 }
 #detail .rapper_form_header {
   display: -webkit-flex;
@@ -315,6 +316,7 @@ header .balance_header {
   border-radius: 4px;
   appearance: none;
   height: 41px;
+  font-size: 13px;
   padding: 4px 10px;
   background: #fff;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
@@ -337,6 +339,16 @@ header .balance_header {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
 }
 #detail .wrapper_form_header {
+  margin-top: 50px;
+}
+#detail .withdraw {
+  border: solid 1px #ccc;
+  color: #aaa;
+  padding: 11px 0;
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 4px;
+  text-align: center;
   margin-top: 40px;
 }
 
@@ -352,7 +364,7 @@ header .balance_header {
 #archives .each_book_archives {
   width: 100%;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
   border-radius: 4px;
   letter-spacing: normal;
   display: inline-block;

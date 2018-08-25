@@ -9,12 +9,6 @@
         <img src="~/assets/logo_header.png" title="SANCHO" alt="SANCHOロゴ">
       </a>
     </h1>
-    <login/>
-    <!-- <div class="wrapper_form_header">
-      <input class="input_key_header" type="" name="" placeholder="ここに秘密鍵を入力してください">
-      <button class="button_go_header" location.href="/comics">GO</button>
-      <button class="button_upload_header">Upload</button>
-    </div> -->
   </div>
 </header>
 
@@ -24,25 +18,21 @@
     <h2 class="catch_top">
       <img src="~/assets/catch_top.png" title="SANCHO" alt="SANCHO - 読みたい漫画がここにある">
     </h2>
-    <p class="description_top">SANCHOはブロックチェーン技術を用いた、無料かつ合法的に漫画が読める<br />次世代のエンタメプラットフォームです</p>
-    <div class="wrapper_scroll rick_anime fadeIn" data-ra-delay="3.0s">
-      <span class="border_scroll"></span>
-      <button class="button_top">はじめる</button>
-    </div>
+    <p class="description_top">Next Gen Completely Transparent & Fair Comic Platform</p>
+    <login/>
   </div>
 </section>
 
 <!-- introduction -->
 <section id="introduction">
-  <h2 class="title_introduction rick_anime fadeInUp">
+  <h2 class="title_introduction">
     <img src="~/assets/title_introduction.png" title="What is SANCHO" alt="テキスト画像" />
   </h2>
-  <span class="subtitle_speakers rick_anime fadeInUp">SANCHOについて</span>
   <ul class="wrapper_contents_introduction">
     <li class="each_ex_introduction">
       <article>
         <div class="icon_introduction"></div>
-        <h3 class="each_title_introduction">タイトルが入ります</h3>
+        <h3 class="each_title_introduction">人気の漫画がいつでも<br />どこでも無料で読める！</h3>
         <p class="description_introduction">テキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入りますテキスト入ります</p>
       </article>
     </li>
@@ -137,7 +127,7 @@ header .wrapper_contents_header {
   justify-content: space-between;
   align-items: center;
   margin: 0px auto;
-  padding: 10px 0;
+  padding: 11px 0;
 }
 header .rapper_form_header {
   display: -webkit-flex;
@@ -191,7 +181,7 @@ header .button_upload_header {
   width: 100%;
 	background-attachment: fixed;
   position: relative;
-  height: 93vh;
+  height: 100vh;
   display: -webkit-flex;
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
@@ -203,70 +193,20 @@ header .button_upload_header {
   background-position: center;
 }
 #top .wrapper_contents_top {
-	margin-top: 100px;
+	margin-top: 65px;
 }
 #top .catch_top {
 	width: 300px;
 	margin: 0 auto;
 }
 #top .description_top {
-	width: 500px;
-	margin: 0 auto;
-	margin-top: 30px;
-	color: #fff;
-	text-align: center;
-}
-#top .border_scroll {
-	width: 1px;
-  height: 70px;
-  margin: 20px auto 0;
-  background: #fff;
-  box-shadow: 0px 0px 24px #555;
-  display: block;
-  -webkit-animation: sdb 2.5s infinite;
-  animation: sdb 2.5s infinite;
-}
-#top .button_top {
-	background: #fff100;
-	font-size: 13px;
-	box-shadow: 0px 10px 30px rgba(0, 0, 0, .3);
-  -webkit-appearance: none;
-	appearance: none;
-	display: block;
-	margin: 0 auto;
-	padding: 14px 0;
-	border: none;
-  border-radius: 48px;
-  width: 240px;
+  width: 500px;
+  margin: 0 auto;
+  font-size: 21px;
+  margin-top: 30px;
+  color: #fff;
   text-align: center;
-	font-weight: bold;
-	margin-top: 60px;
-}
-@-webkit-keyframes sdb {
-  0% {
-    -webkit-transform: translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translate(0px, 40px);
-    opacity: 0;
-  }
-}
-@keyframes sdb {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0px, 40px);
-    opacity: 0;
-  }
+  font-family: 'Oswald', sans-serif;
 }
 
 /* introduction */
@@ -276,15 +216,6 @@ header .button_upload_header {
 #introduction .title_introduction {
 	width: 400px;
 	margin: 0 auto;
-}
-#introduction .subtitle_speakers {
-  text-align: center;
-  display: block;
-  font-size: 14px;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: bold;
-  margin-top: 16px;
-  color: #000;
 }
 #introduction .icon_introduction {
 	width: 160px;
@@ -303,16 +234,16 @@ header .button_upload_header {
 	display: -webkit-flex;
 	display: flex;
 	width: 980px;
-	margin: 30px auto 90px;
+	margin: 60px auto 90px;
 }
 #introduction .each_ex_introduction {
 	width: 290px;
 	border-top: solid 1px #ddd;
 	border-left: solid 1px #ddd;
 	border-right: solid 1px #ddd;
-  border-bottom: solid 5px #ddd;
+  border-bottom: solid 6px #ddd;
   margin-right: auto;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 20px;
 }
 #introduction .each_ex_introduction:last-child {

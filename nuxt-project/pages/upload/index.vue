@@ -11,7 +11,7 @@
     </h1>
     <div class="wrapper_form_header">
       <div class="wrapper_balance_header">
-        <span class="subtitle_balance_header">アドレス:</span>
+        <span class="subtitle_balance_header">Address:</span>
         <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
       </div>
       <button class="button_go_header">Upload</button>
@@ -19,7 +19,7 @@
   </div>
 </header>
 
-<file-upload/>
+  <file-upload/>
 
 <!-- footer -->
 <footer>
@@ -123,7 +123,7 @@ header .button_go_header {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 20px;
-  width: 120px;
+  width: 150px;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
@@ -151,7 +151,7 @@ header .wrapper_form_header {
 }
 header .subtitle_balance_header {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   margin-right: 10px;
 }
 header .balance_header {
@@ -163,7 +163,7 @@ header .balance_header {
 /* detail */
 #detail {
   width: 100%;
-  height: 500px;
+  height: 100vh;
   padding-top: 60px;
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -190,26 +190,30 @@ header .balance_header {
   text-align: center;
 }
 #detail .description_book_detail {
-  font-size: 14px;
-  color: #777;
+  font-size: 16px;
+  color: #888;
   text-align: center;
   margin-top: 10px;
 }
 #detail .button_upload_header {
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  display: flex;
+  justify-content: center;
   background: #1e5ccc;
   display: block;
-  padding: 20px 0;
-  font-family: 'Oswald', sans-serif;
+  padding: 32px 0 32px 126px;
   -webkit-appearance: none;
   appearance: none;
-  border-radius:1200px;
+  border-radius: 100px;
   color: #fff;
   font-size: 14px;
-  width: 100%;
+  width: 60%;
+  margin: 0 auto;
   text-align: center;
   font-weight: bold;
   border: none;
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, .2);
 }
 #detail .wrapper_form_header {
   margin-top: 40px;
@@ -217,7 +221,7 @@ header .balance_header {
 
 /* archives */
 #archives {
-  padding: 0px 0 160px;
+  padding: 0px 0 80px;
 }
 #archives .wrapper_contents_archives {
   letter-spacing: -.4em;

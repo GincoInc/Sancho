@@ -11,7 +11,7 @@
     </h1>
     <div class="wrapper_form_header">
       <div class="wrapper_balance_header">
-        <span class="subtitle_balance_header">アドレス:</span>
+        <span class="subtitle_balance_header">Address:</span>
         <span class="balance_header">AMdDsjNcxirRnYST4iLPFDJB5E6woYPdjK</span>
       </div>
       <button class="button_go_header" v-on:click="goUpload">Upload</button>
@@ -25,7 +25,6 @@
     <h2 class="title_top_archives">
       <img src="~/assets/title_top_archives.png" title="Comics" alt="テキスト画像">
     </h2>
-    <h3 class="subtitle_top_archives">マンガ一覧</h3>
   </div>
 </section>
 
@@ -137,9 +136,9 @@ header .button_go_header {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 20px;
-  width: 120px;
+  width: 150px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
   margin-left: 10px;
@@ -165,12 +164,12 @@ header .wrapper_form_header {
 }
 header .subtitle_balance_header {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   margin-right: 10px;
 }
 header .balance_header {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -182,21 +181,15 @@ header .balance_header {
   background-position: center;
   background-image: url('~/assets/background_top.jpg');
   height: 340px;
+  padding-top: 60px;
 }
 #top .wrapper_contents_top {
   width: 230px;
-  padding-top: 150px;
   margin: 0px auto;
 }
 #top .title_top_archives img {
   width: 100%;
   height: auto;
-}
-#top .subtitle_top_archives {
-  text-align: center;
-  color: #fff;
-  font-size: 20px;
-  margin-top: 10px;
 }
 
 /* archives */
