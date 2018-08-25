@@ -110,12 +110,12 @@ def get_data(ctx):
     return Get(ctx, BOOKLIST)
 
 
-def put_data(ctx, args):
+def put_data(ctx, data):
     book_list = Get(ctx, BOOKLIST)
     if len(book_list) == 0:
-        Put(ctx, BOOKLIST, args[0])
+        Put(ctx, BOOKLIST, data)
         return True
-    result = concat(book_list, concat(b',', args[0]))
+    result = concat(book_list, concat(b',', data))
     Put(ctx, BOOKLIST, result)
     return True
 
