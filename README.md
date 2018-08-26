@@ -45,11 +45,13 @@ Integrate with Ad platform based on blockchain and construct sustainable busines
 * Implement voting algorithm
 
 ## Technology/Development
-### Architecture
-#### Framework
+
+* **NEO Blockchain**
+* **neon-js**
+* **neo-boa**
+
+* InterPlanetary File System 
 * Nuxt.js
-* Interplanetary File System 
-* Neo Blockchain
 
 #### What we've originally built during hackathon
 * Collaboration between ipfs and neo blockchain.
