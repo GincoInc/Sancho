@@ -25,13 +25,13 @@ Once the comic creators are authenticated by votes, they can get payed as the pl
 Any user can upload his/her favorite comics to the platform.
 
 #### 3. Income is fairly distributed
-The income gained from ads directly stored in the neo smartcontract. It can be withdrawed only by eligible users and the distribution algorith which fairly devides the income is implemented in the smartcontract. 
+The income gained from ads directly stored in the neo smartcontract. It can be withdrawed only by eligible users and the distribution algorith which fairly divides the income is implemented in the smartcontract. 
 
 #### 4. Whole management is transparent
 All monetary processes happen on samrtcontract which enables complete transparency.
 
 #### 5. No owner exists (complete Dapp)
-All component is distributed using ipfs and neo blockchain. There is no need of owner in this service.
+All components are distributed using ipfs and neo blockchain. There is no need of owner in this service.
 
 ### What we can solve
 Eliminate exsting malicious comic pirate platforms and bring the money back to creators. 
@@ -45,7 +45,7 @@ Integrate with Ad platform based on blockchain and construct sustainable busines
 ### Architecture
 #### Framework
 * Nuxt.js
-* Ipfs
+* Interplanetary File System 
 * Neo Blockchain
 
 #### What we've originally built during hackathon
