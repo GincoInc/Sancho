@@ -105,14 +105,15 @@ export default {
   },
   methods :{
     vote() {
+      let account = new wallet.Account(this.$store.state.privateKey)
       Neon.doInvoke({
         net: "http://127.0.0.1:30333",
         script: Neon.create.script({
           scriptHash: this.$store.state.scriptHash, // Scripthash for the contract
           operation: 'vote', // name of operation to perform.
-          args: [u.str2hexstring(this.$route.params.id), u.str2hexstring(new wallet.Account(this.$store.state.privateKey).address)]
+          args: [u.str2hexstring(this.$route.params.id), u.str2hexstring(account.address)]
         }),
-        account: new wallet.Account(this.$store.state.privateKey),
+        account: account,
         gas: 1
       }).then(res => {
         console.log(res);

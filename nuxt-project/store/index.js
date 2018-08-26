@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const store = () => new Vuex.Store({
 
   state: {
-    scriptHash: '4c4a20c3979430d6176eeea9bfd2b4e5dd675c71',
+    scriptHash: '619d317cd320f8b447a662d91628e341d0e0507d',
     privateKey: '',
     isLogin: false,
     comics: []
