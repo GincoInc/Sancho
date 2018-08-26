@@ -308,7 +308,7 @@ header .balance_header {
 #detail .wrapper_form_header {
   margin-top: 50px;
 }
-#detail .withdraw {
+.withdraw {
   border: solid 1px #ccc;
   color: #aaa;
   padding: 11px 0;
