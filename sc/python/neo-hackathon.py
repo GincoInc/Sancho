@@ -122,6 +122,7 @@ def put_vote(ctx, bhash, address):
     return True
 
 def withdraw(ctx, bhash):
+    Notify(bhash)
     attachments = get_asset_attachments()
     vote_data = Get(ctx, bhash)
     if len(vote_data) != 0:
@@ -130,6 +131,9 @@ def withdraw(ctx, bhash):
         return False
     raddress = reliable_address(vote_dict)
     vote_count = vote_dict[raddress]
+    Notify(raddress)
+    Notify(attachments[1])
+    Notify(vote_count)
     if raddress == attachments[1] and vote_count > 0:
         transfer(ctx, OWNER, raddress, 100)
         return True
