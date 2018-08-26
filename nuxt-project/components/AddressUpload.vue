@@ -3,6 +3,8 @@
     <div class="wrapper_balance_header">
       <span class="subtitle_balance_header">Address:</span>
       <span class="balance_header">{{ address }}</span>
+      <span class="subtitle_balance_header">NeoGas:</span>
+      <span class="balance_header">{{ $store.state.neoGas }}</span>
     </div>
     <button class="button_go_header" v-on:click="goUpload">Upload</button>
   </div>

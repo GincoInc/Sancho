@@ -10,6 +10,15 @@
 <script>
 import Neon, {api, rpc, wallet, u} from '@cityofzion/neon-js'
 
+const config = {
+  name: 'PrivateNet',
+  extra: {
+    neoscan: 'http://127.0.0.1:4000/api/main_net'
+  }
+}
+const privateNet = new rpc.Network(config)
+Neon.add.network(privateNet)
+
 export default {
   data() {
     return {
@@ -18,9 +27,11 @@ export default {
     }
   },
   methods :{
-    login: function () {
+    login: async function () {
       const account = new wallet.Account(this.privateKey);
       this.$store.commit('login', account.privateKey)
+      const balance = await api.neoscan.getBalance('PrivateNet', account.address)
+      this.$store.commit('setNeoGas', balance.assets.GAS.balance.toString())
       this.$router.push('/comics')
     }
   },
