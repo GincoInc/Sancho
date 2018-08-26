@@ -4,6 +4,9 @@
 
 ## What is Sancho?
 ### Team Colony
+- Morishita Masataka (GuiltyMorishita)
+- Nanjo Hiroki (nandehu0323)
+- Uchimura Seita (seita-uc)
 
 ### Background（Current Problems）
   In the first place, there are mainly three problems present in the comic industry caused by pirate websites especially in Japan. 
