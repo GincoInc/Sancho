@@ -134,7 +134,7 @@ def withdraw(ctx, bhash):
     Notify(raddress)
     Notify(attachments[1])
     Notify(vote_count)
-    if raddress == attachments[1] and vote_count > 0:
+    if vote_count > 0:
         transfer(ctx, OWNER, raddress, 100)
         return True
     return False
